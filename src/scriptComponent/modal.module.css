@@ -1,0 +1,59 @@
+:global {
+    .custom_space {
+        max-height: 500px; /* This gives a boundary for vertical scroll. Adjust the value based on your requirements. */
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 100%;
+        display: flex;
+        flex-direction: column; /* Set the direction to column to make it scroll vertically */
+    }
+    
+    .tag-container {
+        display: flex;
+        flex-direction: row; /* To ensure the 4 columns are side-by-side */
+        width: 100%;
+    }
+
+    .tag-column {
+        flex: 1; /* Distributes equal width to each of the 4 columns */
+        display: flex;
+        flex-direction: column;
+        margin-right: 10px; /* spacing between columns */
+        /* overflow-y: auto; Just in case, if any column has more tags than others */
+    }
+
+    .tag {
+        margin-bottom: 5px; /* spacing between tags in a column */
+        border: 1px solid #33333317;
+        padding: 10px;
+        width: 100%;
+    }
+
+    /* Scrollbar Styling */
+    .custom_space::-webkit-scrollbar{
+        width: 10px;  /* adjust this value to set the width of the scrollbar */
+        cursor: pointer;
+    }
+
+    .custom_space::-webkit-scrollbar-thumb{
+        background-color: #ff9501;
+        border-radius: 5px; /* rounded corners for the thumb */
+        border: 2px solid transparent; /* should be the same as the track (transparent here) to prevent it from appearing too large */
+    }
+
+    .custom_space::-webkit-scrollbar-track{
+        background-color: #ffe0b5;
+        border-radius: 5px; /* rounded corners for the track */
+    }
+
+    /* For Firefox */
+    .custom_space{
+        scrollbar-color: #ff9501 #ffe0b5; /* thumb and track colors */
+        scrollbar-width: thin;
+    }
+
+    /* To prevent the last column from having extra margin */
+    .tag-column:last-child {
+        margin-right: 0;
+    }
+}
